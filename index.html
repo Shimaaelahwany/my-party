@@ -8,53 +8,79 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
         body { background: #faf6f0; color: #2c2c2c; text-align: center; overflow-x: hidden; }
+        
         .cover {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url("https://images.unsplash.com/photo-1519741497674-611481863552?w=1600") center/cover;
             display: flex; justify-content: center; align-items: center; color: white; z-index: 1000;
             transition: opacity 0.5s ease;
+            padding: 15px;
         }
         .cover.hidden { opacity: 0; visibility: hidden; }
-        .cover-content { padding: 20px; width: 100%; max-width: 500px; }
-        .cover h1 { font-family: 'Great Vibes', cursive; font-size: 65px; color: #f6d365; margin: 10px 0; }
+        .cover-content { padding: 10px; width: 100%; max-width: 500px; }
+        .cover h1 { font-family: 'Great Vibes', cursive; font-size: 50px; color: #f6d365; margin: 10px 0; word-break: break-word; }
         .cover h1 span { color: #ff5c8a; }
-        .cover p { font-size: 18px; margin: 15px 0 25px; font-family: 'Amiri', serif; }
+        .cover p { font-size: 16px; margin: 15px 0 25px; font-family: 'Amiri', serif; }
         .cover button {
-            padding: 14px 40px; border-radius: 50px; border: none; cursor: pointer;
+            padding: 12px 35px; border-radius: 50px; border: none; cursor: pointer;
             background: linear-gradient(135deg, #f6d365, #b8860b); color: white;
-            font-size: 18px; font-weight: 700; box-shadow: 0 5px 20px rgba(184, 134, 11, 0.4);
+            font-size: 16px; font-weight: 700; box-shadow: 0 5px 20px rgba(184, 134, 11, 0.4);
         }
+        
         .invitation-container { display: none; }
         .invitation-container.visible { display: block; }
+        
         .hero {
-            height: 70vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url("https://images.unsplash.com/photo-1519741497674-611481863552?w=1600") center/cover;
+            height: 60vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url("https://images.unsplash.com/photo-1519741497674-611481863552?w=1600") center/cover;
             display: flex; justify-content: center; align-items: center; flex-direction: column; color: white; padding: 0 15px;
         }
-        .hero h1 { font-family: 'Great Vibes', cursive; font-size: 60px; color: #f6d365; }
-        section { padding: 60px 5%; }
-        .section-title { color: #b8860b; font-size: 32px; margin-bottom: 15px; font-family: 'Amiri', serif; }
-        .message { background: white; border-radius: 20px; margin: 20px 5%; padding: 40px 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
-        .message p { font-size: 20px; line-height: 2; font-family: 'Amiri', serif; }
-        .photos-grid { display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
-        .photo-card { background: white; padding: 10px 10px 20px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); width: 280px; }
-        .photo-card img { width: 100%; height: 320px; object-fit: cover; border-radius: 15px; }
-        .photo-card h3 { margin-top: 15px; font-size: 24px; color: #b8860b; font-family: 'Amiri', serif; }
-        .details-card { background: white; max-width: 600px; margin: 20px auto 0; padding: 30px 20px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .details-item { font-size: 20px; margin: 20px 0; font-family: 'Amiri', serif; }
+        .hero h1 { font-family: 'Great Vibes', cursive; font-size: 45px; color: #f6d365; word-break: break-word; }
+        
+        section { padding: 40px 15px; }
+        .section-title { color: #b8860b; font-size: 26px; margin-bottom: 15px; font-family: 'Amiri', serif; }
+        
+        .message { background: white; border-radius: 20px; margin: 20px auto; max-width: 600px; padding: 30px 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .message p { font-size: 18px; line-height: 1.8; font-family: 'Amiri', serif; }
+        
+        .photos-grid { display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap; margin-top: 20px; }
+        .photo-card { background: white; padding: 10px 10px 15px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); width: 100%; max-width: 250px; }
+        .photo-card img { width: 100%; height: 280px; object-fit: cover; border-radius: 15px; }
+        .photo-card h3 { margin-top: 12px; font-size: 22px; color: #b8860b; font-family: 'Amiri', serif; }
+        
+        .details-card { background: white; max-width: 600px; margin: 20px auto 0; padding: 25px 15px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .details-item { font-size: 17px; margin: 15px 0; font-family: 'Amiri', serif; }
+        
         .location-btn {
-            display: inline-block; margin-top: 20px; padding: 14px 35px;
+            display: inline-block; margin-top: 15px; padding: 12px 25px;
             background: linear-gradient(135deg, #b8860b, #996d05); color: white;
-            text-decoration: none; font-size: 18px; font-weight: 700; border-radius: 50px;
+            text-decoration: none; font-size: 16px; font-weight: 700; border-radius: 50px;
+            max-width: 100%; word-break: break-word;
         }
-        footer { background: #1a1a1a; color: white; padding: 40px 15px; font-size: 18px; font-family: 'Amiri', serif; }
+        
+        footer { background: #1a1a1a; color: white; padding: 30px 15px; font-size: 16px; font-family: 'Amiri', serif; }
+
+        /* تعديلات للشاشات الأكبر (الكمبيوتر والتابلت) لتعود كما كانت ومظبوطة */
+        @media (min-width: 768px) {
+            .cover h1 { font-size: 65px; }
+            .hero h1 { font-size: 60px; }
+            section { padding: 60px 5%; }
+            .section-title { font-size: 32px; }
+            .message { margin: 20px 5%; padding: 40px 20px; }
+            .message p { font-size: 20px; }
+            .photo-card { width: 280px; }
+            .photo-card img { height: 320px; }
+            .details-card { padding: 30px 20px; }
+            .details-item { font-size: 20px; }
+            .location-btn { padding: 14px 35px; font-size: 18px; }
+        }
     </style>
 </head>
 <body>
 
     <div class="cover" id="cover">
         <div class="cover-content">
-            <div style="font-size: 50px; margin-bottom: 10px;">💍</div>
-            <h3 style="font-size: 18px; color: #f3e5ab;">دعوة حضور حفل الخطوبة</h3>
+            <div style="font-size: 40px; margin-bottom: 10px;">💍</div>
+            <h3 style="font-size: 16px; color: #f3e5ab;">دعوة حضور حفل الخطوبة</h3>
             <h1>كريم <span>❤️</span> يارا</h1>
             <p>الحب يجمعنا والأقدار تكتب لنا أجمل البدايات</p>
             <button onclick="openInvitation()">✨ عرض الدعوة ✨</button>
@@ -63,9 +89,9 @@
 
     <div class="invitation-container" id="invitationPage">
         <section class="hero">
-            <h2 style="font-size: 18px; color: #f3e5ab; letter-spacing: 2px;">حفل خطوبة</h2>
+            <h2 style="font-size: 16px; color: #f3e5ab; letter-spacing: 2px;">حفل خطوبة</h2>
             <h1>كريم ❤️ يارا</h1>
-            <p style="font-size: 22px; font-family: 'Amiri', serif; margin-top: 10px;">ونبدأ معاً رحلة جديدة</p>
+            <p style="font-size: 18px; font-family: 'Amiri', serif; margin-top: 10px;">ونبدأ معاً رحلة جديدة</p>
         </section>
 
         <section class="message">
@@ -84,7 +110,7 @@
                     <img src="photo_2026-07-31_19-03-12.jpg" alt="العريس كريم">
                     <h3>كريم</h3>
                 </div>
-                <div style="font-size: 35px; color: #ff4d7a;">❤️</div>
+                <div style="font-size: 30px; color: #ff4d7a; width: 100%; text-align: center;">❤️</div>
                 <div class="photo-card">
                     <img src="photo_2026-07-31_19-03-17.jpg" alt="العروسة يارا">
                     <h3>يارا</h3>
