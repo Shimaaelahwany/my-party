@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كريم ❤️ يارا | دعوة حفل الخطوبة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Great+Vibes&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        :root {
+            --primary: #b8860b;
+            --accent: #ff4d7a;
+            --gold-light: #f6d365;
+            --bg-color: #faf6f0;
+            --text-dark: #2c2c2c;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating background particles */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+            overflow: hidden;
+        }
+
+        .heart-particle {
+            position: absolute;
+            color: rgba(255, 77, 122, 0.2);
+            font-size: 20px;
+            animation: floatUp 6s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+        }
+
+        /* Cover Screen */
+        .cover {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url("https://images.unsplash.com/photo-1519741497674-611481863552?w=1600") center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            z-index: 1000;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .cover.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .cover-content {
+            padding: 30px;
+            max-width: 600px;
+            animation: showCover 1.5s ease;
+        }
+
+        .rings-icon {
+            font-size: 75px;
+            animation: pulseRing 2s infinite ease-in-out;
+            margin-bottom: 15px;
+        }
+
+        @keyframes pulseRing {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        .cover h3 {
+            font-size: 22px;
+            letter-spacing: 2px;
+            color: #f3e5ab;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .cover h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 90px;
+            color: #f6d365;
+            margin: 15px 0;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .cover h1 span {
+            color: #ff5c8a;
+        }
+
+        .cover p {
+            font-size: 20px;
+            margin: 20px 0 35px;
+            color: #f5f5f5;
+            font-family: 'Amiri', serif;
+        }
+
+        .cover button {
+            padding: 16px 50px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            background: linear-gradient(135deg, #f6d365, #b8860b);
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(184, 134, 11, 0.4);
+            transition: all 0.4s ease;
+        }
+
+        .cover button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(184, 134, 11, 0.6);
+        }
+
+        @keyframes showCover {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Main Invitation Content */
+        .invitation-container {
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .invitation-container.visible {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.6)), url("https://images.unsplash.com/photo-1519741497674-611481863552?w=1600") center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, var(--bg-color), transparent);
+        }
+
+        .hero h2 {
+            font-size: 24px;
+            color: #f3e5ab;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 100px;
+            color: #f6d365;
+            text-shadow: 0 5px 20px rgba(0,0,0,0.6);
+        }
+
+        .hero p {
+            font-size: 28px;
+            font-family: 'Amiri', serif;
+            margin-top: 10px;
+        }
+
+        /* Sections General Styling */
+        section {
+            padding: 90px 10%;
+            text-align: center;
+        }
+
+        .section-title {
+            color: var(--primary);
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-family: 'Amiri', serif;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--primary), transparent);
+        }
+
+        /* Message Section */
+        .message {
+            background: white;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+            border-radius: 30px;
+            margin: 40px 8%;
+            padding: 60px 40px;
+        }
+
+        .message p {
+            font-size: 26px;
+            line-height: 2.2;
+            color: #444;
+            font-family: 'Amiri', serif;
+            margin-top: 20px;
+        }
+
+        /* Childhood Photos Section */
+        .couple-photos {
+            background: linear-gradient(135deg, #fff3e6, #fff9f1);
+            padding: 80px 5%;
+        }
+
+        .photos-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .photo-card {
+            background: white;
+            padding: 15px 15px 30px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            width: 320px;
+            transition: transform 0.4s ease;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 18px;
+        }
+
+        .photo-card h3 {
+            margin-top: 20px;
+            font-size: 28px;
+            color: var(--primary);
+            font-family: 'Amiri', serif;
+        }
+
+        .heart-divider {
+            font-size: 50px;
+            color: var(--accent);
+            animation: beat 1.5s infinite;
+        }
+
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        /* Countdown Section */
+        .countdown {
+            background: white;
+            padding: 90px 10%;
+        }
+
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .timer-box {
+            background: linear-gradient(135deg, #e8c766, #b8860b);
+            color: white;
+            width: 140px;
+            height: 140px;
+            border-radius: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            box-shadow: 0 15px 30px rgba(184, 134, 11, 0.3);
+        }
+
+        .timer-box span {
+            font-size: 48px;
+            font-weight: 900;
+        }
+
+        .timer-box p {
+            font-size: 16px;
+            margin-top: 5px;
+            font-weight: 600;
+        }
+
+        #finished-msg {
+            margin-top: 30px;
+            color: var(--accent);
+            font-size: 32px;
+            font-weight: bold;
+            font-family: 'Amiri', serif;
+        }
+
+        /* Details Section */
+        .details {
+            background: linear-gradient(to bottom, #fff9f1, #fcf2e3);
+            padding: 90px 10%;
+        }
+
+        .details-card {
+            background: white;
+            max-width: 800px;
+            margin: 40px auto 0;
+            padding: 50px;
+            border-radius: 35px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+            border: 2px solid rgba(184, 134, 11, 0.15);
+        }
+
+        .details-item {
+            font-size: 26px;
+            margin: 25px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-family: 'Amiri', serif;
+            color: #444;
+        }
+
+        .details-item span.icon {
+            font-size: 32px;
+        }
+
+        .location-btn {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 16px 50px;
+            background: linear-gradient(135deg, #b8860b, #996d05);
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 700;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(184, 134, 11, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .location-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(184, 134, 11, 0.6);
+        }
+
+        /* Music Floating Player Style */
+        .music-player-box {
+            margin: 30px auto 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #fff;
+            padding: 10px 25px;
+            border-radius: 50px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border: 1px solid rgba(184, 134, 11, 0.3);
+        }
+
+        .music-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+
+        .music-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .music-info span {
+            font-family: 'Amiri', serif;
+            font-size: 18px;
+            color: var(--text-dark);
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            font-size: 24px;
+            font-family: 'Amiri', serif;
+            letter-spacing: 1px;
+        }
+
+        footer span {
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .cover h1 { font-size: 70px; }
+            .hero h1 { font-size: 75px; }
+            .section-title { font-size: 34px; }
+            .message p, .details-item { font-size: 20px; }
+            .timer-box { width: 100px; height: 100px; }
+            .timer-box span { font-size: 32px; }
+            .photo-card { width: 100%; max-width: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- مشغل يوتيوب المخفي للخلفية -->
+    <div id="youtube-player" style="display:none;"></div>
+
+    <!-- Floating Background Particles -->
+    <div class="floating-hearts" id="particleContainer"></div>
+
+    <!-- Cover Screen -->
+    <div class="cover" id="cover">
+        <div class="cover-content">
+            <div class="rings-icon">💍</div>
+            <h3>دعوة حضور حفل الخطوبة</h3>
+            <h1>كريم <span>❤️</span> يارا</h1>
+            <p>الحب يجمعنا والأقدار تكتب لنا أجمل البدايات</p>
+            <button onclick="openInvitation()">✨ عرض الدعوة ✨</button>
+        </div>
+    </div>
+
+    <!-- Main Invitation Page -->
+    <div class="invitation-container" id="invitationPage">
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <h2>حفل خطوبة</h2>
+            <h1>كريم ❤️ يارا</h1>
+            <p>ونبدأ معاً رحلة جديدة</p>
+        </section>
+
+        <!-- Message Section -->
+        <section class="message">
+            <h2 class="section-title">بكل الحب</h2>
+            <p>
+                بكل السعادة والسرور، نتشرف بدعوتكم لحضور حفل خطوبتنا البهيج<br>
+                لنشارك معاً أجمل لحظات العمر ونبدأ صفحة جديدة من حياتنا.<br>
+                <strong>وجودكم يكمل فرحتنا</strong>
+            </p>
+        </section>
+
+        <!-- Childhood Photos Section -->
+        <section class="couple-photos">
+            <h2 class="section-title">حكايتنا من البداية</h2>
+            <div class="photos-grid">
+                <div class="photo-card">
+                    <img src="photo_2026-07-31_19-03-12.jpg" alt="العريس كريم">
+                    <h3>كريم</h3>
+                </div>
+                <div class="heart-divider">❤️</div>
+                <div class="photo-card">
+                    <img src="photo_2026-07-31_19-03-17.jpg" alt="العروسة يارا">
+                    <h3>يارا</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Countdown Section -->
+        <section class="countdown">
+            <h2 class="section-title">متبقي على الخطوبة</h2>
+            <div class="timer">
+                <div class="timer-box">
+                    <span id="days">00</span>
+                    <p>يوم</p>
+                </div>
+                <div class="timer-box">
+                    <span id="hours">00</span>
+                    <p>ساعة</p>
+                </div>
+                <div class="timer-box">
+                    <span id="minutes">00</span>
+                    <p>دقيقة</p>
+                </div>
+                <div class="timer-box">
+                    <span id="seconds">00</span>
+                    <p>ثانية</p>
+                </div>
+            </div>
+            <h3 id="finished-msg"></h3>
+        </section>
+
+        <!-- Details Section -->
+        <section class="details">
+            <h2 class="section-title">تفاصيل المناسبة</h2>
+            <div class="details-card">
+                <div class="details-item">
+                    <span class="icon">📅</span>
+                    <span>الأحد 9 / 8 / 2026</span>
+                </div>
+                <div class="details-item">
+                    <span class="icon">🕗</span>
+                    <span>الساعة 8 مساءً</span>
+                </div>
+                <div class="details-item">
+                    <span class="icon">🏰</span>
+                    <span>قاعة مون بلازا - دار الأشغال العسكرية</span>
+                </div>
+                <div class="details-item">
+                    <span class="icon">📍</span>
+                    <span>كورنيش المعادي، القاهرة</span>
+                </div>
+                <br>
+                <a href="https://www.google.com/maps/place//@29.948013,31.2675337,17z/data=!4m6!1m5!3m4!2zMjnCsDU2JzUyLjkiTiAzMcKwMTUnNTUuMiJF!8m2!3d29.948013!4d31.265345?entry=ttu&g_ep=EgoyMDI2MDcyOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="location-btn">
+                    🗺️ فتح اللوكيشن على الخريطة
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            كريم <span>❤️</span> يارا
+            <br>
+            في انتظار تشريفكم لنحتفل معاً بفرحتنا
+            <br>
+            <!-- Music Controller -->
+            <div class="music-player-box">
+                <button class="music-btn" id="playMusicBtn" onclick="toggleMusic()">🎵</button>
+                <div class="music-info">
+                    <span>محمود العسيلي - وأخيراً</span>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // Floating Hearts Generator
+        const particleContainer = document.getElementById('particleContainer');
+        const symbols = ['❤️', '✨', '🌸', '💍'];
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('heart-particle');
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+            particle.style.animationDelay = (Math.random() * 5) + 's';
+            particle.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+            particleContainer.appendChild(particle);
+        }
+
+        // YouTube Iframe API setup for background music
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtube-player', {
+                height: '0',
+                width: '0',
+                videoId: 'GMihmMfeazY',
+                playerVars: {
+                    'autoplay': 0,
+                    'loop': 1,
+                    'playlist': 'GMihmMfeazY'
+                }
+            });
+        }
+
+        const playMusicBtn = document.getElementById('playMusicBtn');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (!player || typeof player.playVideo !== 'function') return;
+            
+            if (isPlaying) {
+                player.pauseVideo();
+                playMusicBtn.innerHTML = "🎵";
+                isPlaying = false;
+            } else {
+                player.playVideo();
+                playMusicBtn.innerHTML = "⏸️";
+                isPlaying = true;
+            }
+        }
+
+        // Open Invitation Function
+        function openInvitation() {
+            const cover = document.getElementById('cover');
+            const page = document.getElementById('invitationPage');
+            
+            cover.classList.add('hidden');
+            page.classList.add('visible');
+            
+            if (player && typeof player.playVideo === 'function') {
+                player.playVideo();
+                playMusicBtn.innerHTML = "⏸️";
+                isPlaying = true;
+            }
+
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Countdown Timer (Sunday, August 9, 2026, 8:00 PM)
+        const engagementDate = new Date("August 9, 2026 20:00:00").getTime();
+
+        const timerInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = engagementDate - now;
+
+            if (distance <= 0) {
+                clearInterval(timerInterval);
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("seconds").innerHTML = "00";
+                document.getElementById("finished-msg").innerHTML = "🎉 اليوم هو يوم حفل الخطوبة السعيد! 🎉";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? '0' + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? '0' + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
+        }, 1000);
+    </script>
+</body>
+</html>
