@@ -17,13 +17,12 @@
             overflow-x: hidden;
         }
 
-        /* غلاف متناسق تماماً مع أي شاشة موبايل */
         .cover {
             position: fixed;
             top: 0; left: 0;
             width: 100%;
             height: 100vh;
-            height: 100dvh; /* مخصص لسفاري والموبايل عشان شريط العرض */
+            height: 100dvh;
             background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url("https://images.unsplash.com/photo-1519741497674-611481863552?w=1600") center/cover;
             display: flex;
             flex-direction: column;
@@ -71,7 +70,6 @@
             -webkit-tap-highlight-color: transparent;
         }
         
-        /* صفحة الدعوة الداخلية */
         .invitation-container { display: none; width: 100%; }
         .invitation-container.visible { display: block; }
         
@@ -128,7 +126,6 @@
 </head>
 <body>
 
-    <!-- مشغل الصوت متوافق تماماً مع سفاري والآيفون -->
     <audio id="bgMusic" loop playsinline preload="auto">
         <source src="YOUR_AUDIO_LINK.mp3" type="audio/mpeg">
     </audio>
@@ -181,7 +178,8 @@
                 <div class="details-item">🕗 الساعة 8 مساءً</div>
                 <div class="details-item">🏰 قاعة مون بلازا - دار الأشغال العسكرية</div>
                 <div class="details-item">📍 كورنيش المعادي، القاهرة</div>
-                <a href="https://www.google.com/maps/place//@29.948013,31.2675337,17z/data=!4m6!1m5!3m4!2zMjnCsDU2JzUyLjkiTiAzMcKwMTUnNTUuMiJF!8m2!3d29.948013!4d31.265345?entry=ttu&g_ep=EgoyMDI2MDcyOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="location-btn">
+                <!-- تم تصحيح اللينك لفتح القاعة مباشرة -->
+                <a href="https://maps.google.com/?q=29.948013,31.265345" target="_blank" class="location-btn">
                     🗺️ فتح اللوكيشن على الخريطة
                 </a>
             </div>
@@ -196,7 +194,6 @@
 
     <script>
         function openInvitation() {
-            // تشغيل الصوت فوراً بلمسة الزرار مباشرة
             var music = document.getElementById('bgMusic');
             if (music) {
                 music.play().catch(function(e) {
@@ -204,7 +201,6 @@
                 });
             }
 
-            // إخفاء الغلاف وإظهار الدعوة
             document.getElementById('cover').classList.add('hidden');
             document.getElementById('invitationPage').classList.add('visible');
             window.scrollTo({ top: 0, behavior: 'smooth' });
