@@ -108,7 +108,6 @@
         .details-card { background: white; width: 92%; max-width: 450px; margin: 15px auto 0; padding: 18px 12px; border-radius: 18px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
         .details-item { font-size: 13px; margin: 8px 0; font-family: 'Amiri', serif; }
         
-        /* تصميم الحاوية الخاصة باللوكيشن والدبوس المتحرك */
         .location-box {
             margin-top: 15px;
             display: flex;
@@ -117,7 +116,6 @@
             gap: 8px;
         }
 
-        /* أنيميشن الدبوس المتحرك */
         .animated-pin {
             font-size: 24px;
             animation: bouncePin 1.2s infinite alternate;
@@ -128,7 +126,6 @@
             100% { transform: translateY(-8px); }
         }
 
-        /* رسالة توضيحية جذابة فوق الزرار */
         .location-msg {
             font-size: 12px;
             color: #b8860b;
@@ -169,7 +166,6 @@
 </head>
 <body>
 
-    <!-- ملف الصوت مع تفعيل التحميل المسبق -->
     <audio id="bgMusic" loop preload="auto">
         <source src="YOUR_AUDIO_LINK.mp3" type="audio/mpeg">
     </audio>
@@ -223,11 +219,11 @@
                 <div class="details-item">🏰 قاعة مون بلازا - دار الأشغال العسكرية</div>
                 <div class="details-item">📍 كورنيش المعادي، القاهرة</div>
                 
-                <!-- قسم اللوكيشن المحدث بدبوس متحرك ورسالة توضيحية -->
                 <div class="location-box">
                     <div class="animated-pin">📍</div>
                     <div class="location-msg">اضغط بالأسفل للذهاب لمكان القاعة مباشرة</div>
-                    <a href="https://www.google.com/maps/place/29%C2%B056'52.9%22N+31%C2%B015'55.2%22E/@29.948013,31.2675337,17z/data=!3m1!4b1!4m4!3m3!8m2!3d29.948013!4d31.265345?entry=ttu" target="_blank" class="location-btn">
+                    <!-- تم تعديل الرابط برابط مباشر وسريع يضع الدبوس على المبنى فوراً -->
+                    <a href="https://maps.google.com/?q=29.948013,31.265345" target="_blank" class="location-btn">
                         🗺️ فتح اللوكيشن على الخريطة
                     </a>
                 </div>
