@@ -127,8 +127,8 @@
 </head>
 <body>
 
-    <!-- كود الصوت -->
-    <audio id="bgMusic" loop playsinline preload="auto">
+    <!-- ملف الصوت مع تفعيل التحميل المسبق -->
+    <audio id="bgMusic" loop preload="auto">
         <source src="YOUR_AUDIO_LINK.mp3" type="audio/mpeg">
     </audio>
 
@@ -196,12 +196,20 @@
     <script>
         function openInvitation() {
             var music = document.getElementById('bgMusic');
-            if (music) {
-                music.play().catch(function(e) {
-                    console.log("Audio Play Error: ", e);
+            
+            // محاولة إجبار الصوت على البدء فوراً عند الضغط
+            music.load();
+            var playPromise = music.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                    // الصوت اشتغل بنجاح
+                }).catch(error => {
+                    console.log("Autoplay prevented or failed", error);
                 });
             }
 
+            // إخفاء الغلاف وإظهار الدعوة
             document.getElementById('cover').classList.add('hidden');
             document.getElementById('invitationPage').classList.add('visible');
             window.scrollTo({ top: 0, behavior: 'smooth' });
