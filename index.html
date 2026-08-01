@@ -140,7 +140,7 @@
         .location-btn {
             display: inline-block; 
             padding: 11px 22px;
-            background: linear-gradient(135deg, #b8860b, #996d05); 
+            background: linear-gradient(135deg: #b8860b, #996d05); 
             color: white;
             text-decoration: none; 
             font-size: 13px; 
@@ -223,8 +223,8 @@
                     <div class="animated-pin">📍</div>
                     <div class="location-msg">اضغط بالأسفل للذهاب لمكان القاعة مباشرة</div>
                     
-                    <!-- ✅ التعديل الأخير: الرابط ده بيجبر الموبايل يفتح تطبيق مابس فوراً -->
-                    <a href="comgooglemaps://?center=29.9478977,31.2665678&zoom=17&q=Mon+Blaa+Esker+Group" onclick="window.open('https://www.google.com/maps/place/Mon+Blaa+Esker+Group/@29.9478977,31.2665678,17z', '_blank'); return true;" class="location-btn">
+                    <!-- ✅ الحل النهائي: إحداثيات GPS مباشرة (مفيش بحث ولا جاري تحميل) -->
+                    <a href="geo:29.9478977,31.2665678?q=29.9478977,31.2665678(مون بلازا)" onclick="window.open('https://www.google.com/maps/place/29.9478977,31.2665678', '_blank'); return true;" class="location-btn">
                        افتح الموقع على الخريطة
                     </a>
                 </div>
