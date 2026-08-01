@@ -222,10 +222,10 @@
                 <div class="location-box">
                     <div class="animated-pin">📍</div>
                     <div class="location-msg">اضغط بالأسفل للذهاب لمكان القاعة مباشرة</div>
-                    <!-- تم استخدام رابط خرائط جوجل المباشر للنقطة بالتحديد دون أخطاء البحث -->
-<a href="#" id="locationBtn" class="location-btn">
-    📍 فتح موقع القاعة
-</a>
+                    <!-- ✅ تم تعديل الرابط ليستخدم الإحداثيات الصحيحة -->
+                    <a href="#" id="locationBtn" class="location-btn">
+                        📍 فتح موقع القاعة
+                    </a>
                 </div>
             </div>
         </section>
@@ -256,25 +256,28 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
+    
     <script>
-document.getElementById("locationBtn").onclick = function(e){
+        document.getElementById("locationBtn").onclick = function(e){
 
-    e.preventDefault();
+            e.preventDefault();
 
-    var lat = 29.948028;
-    var lng = 31.265333;
+            // ✅ الإحداثيات الصحيحة من الموقع المطلوب
+            // 29°56'53.8"N 31°15'55.3"E = 29.948278, 31.265361
+            var lat = 29.948278;
+            var lng = 31.265361;
 
-    if(/Android/i.test(navigator.userAgent)){
-        window.location.href =
-        "intent://maps.google.com/?q="+lat+","+lng+
-        "#Intent;scheme=https;package=com.google.android.apps.maps;end";
-    }else{
-        window.open(
-        "https://www.google.com/maps/search/?api=1&query="+lat+","+lng,
-        "_blank");
-    }
+            if(/Android/i.test(navigator.userAgent)){
+                window.location.href =
+                "intent://maps.google.com/?q="+lat+","+lng+
+                "#Intent;scheme=https;package=com.google.android.apps.maps;end";
+            }else{
+                window.open(
+                "https://www.google.com/maps/search/?api=1&query="+lat+","+lng,
+                "_blank");
+            }
 
-}
-</script>
+        }
+    </script>
 </body>
 </html>
