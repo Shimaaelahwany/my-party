@@ -108,11 +108,53 @@
         .details-card { background: white; width: 92%; max-width: 450px; margin: 15px auto 0; padding: 18px 12px; border-radius: 18px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
         .details-item { font-size: 13px; margin: 8px 0; font-family: 'Amiri', serif; }
         
+        /* تصميم الحاوية الخاصة باللوكيشن والدبوس المتحرك */
+        .location-box {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* أنيميشن الدبوس المتحرك */
+        .animated-pin {
+            font-size: 24px;
+            animation: bouncePin 1.2s infinite alternate;
+        }
+
+        @keyframes bouncePin {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-8px); }
+        }
+
+        /* رسالة توضيحية جذابة فوق الزرار */
+        .location-msg {
+            font-size: 12px;
+            color: #b8860b;
+            font-family: 'Amiri', serif;
+            font-weight: bold;
+            background: #fff8eb;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px dashed #b8860b;
+        }
+
         .location-btn {
-            display: inline-block; margin-top: 12px; padding: 11px 22px;
-            background: linear-gradient(135deg, #b8860b, #996d05); color: white;
-            text-decoration: none; font-size: 13px; font-weight: 700; border-radius: 50px;
+            display: inline-block; 
+            padding: 11px 22px;
+            background: linear-gradient(135deg, #b8860b, #996d05); 
+            color: white;
+            text-decoration: none; 
+            font-size: 13px; 
+            font-weight: 700; 
+            border-radius: 50px;
             box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
+            transition: transform 0.2s;
+        }
+
+        .location-btn:active {
+            transform: scale(0.95);
         }
         
         footer { background: #1a1a1a; color: white; padding: 20px 10px; font-size: 13px; font-family: 'Amiri', serif; width: 100%; }
@@ -180,10 +222,15 @@
                 <div class="details-item">🕗 الساعة 8 مساءً</div>
                 <div class="details-item">🏰 قاعة مون بلازا - دار الأشغال العسكرية</div>
                 <div class="details-item">📍 كورنيش المعادي، القاهرة</div>
-                <!-- تم استبدال رابط البحث القديم بالرابط الدقيق للإحداثيات التي أرسلتها -->
-                <a href="https://www.google.com/maps/place/29%C2%B056'52.9%22N+31%C2%B015'55.2%22E/@29.948013,31.2675337,17z/data=!3m1!4b1!4m4!3m3!8m2!3d29.948013!4d31.265345?entry=ttu" target="_blank" class="location-btn">
-                    🗺️ فتح اللوكيشن على الخريطة
-                </a>
+                
+                <!-- قسم اللوكيشن المحدث بدبوس متحرك ورسالة توضيحية -->
+                <div class="location-box">
+                    <div class="animated-pin">📍</div>
+                    <div class="location-msg">اضغط بالأسفل للذهاب لمكان القاعة مباشرة</div>
+                    <a href="https://www.google.com/maps/place/29%C2%B056'52.9%22N+31%C2%B015'55.2%22E/@29.948013,31.2675337,17z/data=!3m1!4b1!4m4!3m3!8m2!3d29.948013!4d31.265345?entry=ttu" target="_blank" class="location-btn">
+                        🗺️ فتح اللوكيشن على الخريطة
+                    </a>
+                </div>
             </div>
         </section>
 
