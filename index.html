@@ -127,6 +127,7 @@
 </head>
 <body>
 
+    <!-- كود الصوت -->
     <audio id="bgMusic" loop playsinline preload="auto">
         <source src="YOUR_AUDIO_LINK.mp3" type="audio/mpeg">
     </audio>
@@ -179,7 +180,6 @@
                 <div class="details-item">🕗 الساعة 8 مساءً</div>
                 <div class="details-item">🏰 قاعة مون بلازا - دار الأشغال العسكرية</div>
                 <div class="details-item">📍 كورنيش المعادي، القاهرة</div>
-                <!-- رابط مباشر وصريح لقاعة دار الأشغال العسكرية بالمعادي بدون أي لخبطة -->
                 <a href="https://maps.google.com/?q=دار+الأشغال+العسكرية+كورنيش+المعادي" target="_blank" class="location-btn">
                     🗺️ فتح اللوكيشن على الخريطة
                 </a>
@@ -198,7 +198,7 @@
             var music = document.getElementById('bgMusic');
             if (music) {
                 music.play().catch(function(e) {
-                    console.log("Audio Error: ", e);
+                    console.log("Audio Play Error: ", e);
                 });
             }
 
