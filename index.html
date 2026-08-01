@@ -1,10 +1,3 @@
-مشكلة عدم تشغيل الأغنية فوراً مع الضغط على زر "عرض الدعوة" سببها سياسات متصفحات الموبايل (زي فايرفوكس وسفاري وكروم)، لأنها بتمنع أي صوت يشتغل تلقائياً أو من غير تفاعل مباشر مع العنصر اللي بيشغل الصوت.
-
-عشان نحل المشكلة دي وندمج تشغيل الأغنية جوه زر "عرض الدعوة" نفسه بلمسة واحدة، كل اللي هنعمله إننا **هنضيف كود الصوت (Audio element)** ونربط تشغيله بزر `openInvitation` عشان يفتح الدعوة ويشغل الأغنية في نفس اللحظة فوراً.
-
-نسخ الكود بالكامل وجربه، وطبعا هتحط رابط الأغنية بتاعتك مكان كلمة `YOUR_AUDIO_LINK.mp3`:
-
-```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -90,7 +83,6 @@
         
         footer { background: #1a1a1a; color: white; padding: 30px 15px; font-size: 15px; font-family: 'Amiri', serif; width: 100%; }
 
-        /* للشاشات الكبيرة (الكمبيوتر والتابلت) */
         @media (min-width: 768px) {
             .cover h1 { font-size: 65px; }
             .hero h1 { font-size: 60px; }
@@ -110,8 +102,8 @@
 </head>
 <body>
 
-    <!-- عنصر الصوت (ضع رابط الأغنية الخاص بك هنا) -->
-    <audio id="bgMusic" loop>
+    <!-- تم إضافة preload="none" عشان الصفحة تفتح فوراً بدون ما تستنى تحميل الأغنية -->
+    <audio id="bgMusic" loop preload="none">
         <source src="YOUR_AUDIO_LINK.mp3" type="audio/mpeg">
     </audio>
 
@@ -178,13 +170,11 @@
 
     <script>
         function openInvitation() {
-            // تشغيل الأغنية فوراً مع الضغط
             var music = document.getElementById('bgMusic');
             music.play().catch(function(error) {
-                console.log("Audio play blocked or failed: ", error);
+                console.log("Audio play failed: ", error);
             });
 
-            // إخفاء الغلاف وإظهار صفحة الدعوة
             document.getElementById('cover').classList.add('hidden');
             document.getElementById('invitationPage').classList.add('visible');
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -192,7 +182,3 @@
     </script>
 </body>
 </html>
-
-```
-
-*ملاحظة صغيرة:* تأكد من استبدال كلمة `YOUR_AUDIO_LINK.mp3` برابط ملف الصوت الفعلي (أو مساره المحلي) ليعمل بشكل سليم تماماً على الموبايل بمجرد النقر على زر عرض الدعوة.
