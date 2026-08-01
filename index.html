@@ -223,10 +223,7 @@
                     <div class="animated-pin">📍</div>
                     <div class="location-msg">اضغط بالأسفل للذهاب لمكان القاعة مباشرة</div>
                     <!-- تم استخدام رابط خرائط جوجل المباشر للنقطة بالتحديد دون أخطاء البحث -->
-                 <a href="https://maps.app.goo.gl/p4ovSkfwLAWuryNj7"
-   target="_blank"
-   rel="noopener noreferrer"
-   class="location-btn">
+<a href="#" id="locationBtn" class="location-btn">
     📍 فتح موقع القاعة
 </a>
                 </div>
@@ -259,5 +256,25 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
+    <script>
+document.getElementById("locationBtn").onclick = function(e){
+
+    e.preventDefault();
+
+    var lat = 29.948028;
+    var lng = 31.265333;
+
+    if(/Android/i.test(navigator.userAgent)){
+        window.location.href =
+        "intent://maps.google.com/?q="+lat+","+lng+
+        "#Intent;scheme=https;package=com.google.android.apps.maps;end";
+    }else{
+        window.open(
+        "https://www.google.com/maps/search/?api=1&query="+lat+","+lng,
+        "_blank");
+    }
+
+}
+</script>
 </body>
 </html>
