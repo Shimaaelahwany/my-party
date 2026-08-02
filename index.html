@@ -148,8 +148,6 @@
             border-radius: 50px;
             box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
             transition: transform 0.2s;
-            border: none;
-            cursor: pointer;
         }
 
         .location-btn:active {
@@ -225,10 +223,10 @@
                     <div class="animated-pin">📍</div>
                     <div class="location-msg">اضغط بالأسفل للذهاب لمكان القاعة مباشرة</div>
                     
-                    <!-- الحل المضمون 100% للموبايل واللاب توب بالإحداثيات الجديدة -->
-                    <button onclick="openGoogleMap()" class="location-btn">
+                    <!-- الرابط المباشر والصحيح المأخوذ من خريطتك بالتحديد -->
+                    <a href="https://www.google.com/maps/place/29%C2%B056'52.9%22N+31%C2%B015'55.2%22E/@29.948013,31.2675337,17z/data=!3m1!4b1!4m4!3m3!8m2!3d29.948013!4d31.265345" target="_blank" class="location-btn">
                         افتح الموقع على الخريطة
-                    </button>
+                    </a>
                 </div>
             </div>
         </section>
@@ -257,16 +255,6 @@
             document.getElementById('cover').classList.add('hidden');
             document.getElementById('invitationPage').classList.add('visible');
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // دالة موحدة ومضمونة لفتح خرائط جوجل بالرابط الصريح على كل الأجهزة
-        function openGoogleMap() {
-            const lat = "29.94819892598518";
-            const lng = "31.265269915636207";
-            const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
-            
-            // فتح الرابط كأنه متصفح ويب عادي يضمن عدم التعليق على جاري التحميل في الموبايل
-            window.open(mapsUrl, '_blank');
         }
     </script>
 </body>
