@@ -469,9 +469,9 @@ font-family:'Amiri';
         جاري تحديد موقعك...
     </div>
 
-    <a href="#" id="locationBtn" class="location-btn">
-        افتح الموقع على الخريطة
-    </a>
+<a class="location-btn" id="locationBtn" href="#">
+    📍 افتح الموقع على الخريطة
+</a>
 
 </div>
 
@@ -599,40 +599,51 @@ maximumAge:0
 );
 
 }
-        // فتح المكان مباشرة في حالة عدم السماح بالموقع
-    document.getElementById("locationBtn").addEventListener("click", function(e){
+document.getElementById("locationBtn").addEventListener("click", function (e) {
 
-        if(this.getAttribute("href")!="#")
-            return;
+    e.preventDefault();
 
-    });
+    const lat = 29.9480278;
+    const lng = 31.2653333;
 
-}
+    // Android
+    if (/Android/i.test(navigator.userAgent)) {
 
-// الحصول على اسم المكان بالعربي تلقائياً
-async function getAddress(){
+        // نحاول فتح Google Maps مباشرة
+        window.location.href = `google.navigation:q=${lat},${lng}`;
 
-    try{
+        // لو فشل، افتح الرابط العادي
+        setTimeout(() => {
+            window.location.href =
+            `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}&travelmode=driving`;
+        }, 1000);
 
-        const response=await fetch(
+    }
 
-        `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${DESTINATION.lat}&lon=${DESTINATION.lng}&accept-language=ar`
+    // iPhone
+    else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
 
+        window.location.href =
+        `https://maps.apple.com/?daddr=${lat},${lng}`;
+
+    }
+
+    // كمبيوتر
+    else {
+
+        window.open(
+        `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}&travelmode=driving`,
+        "_blank"
         );
 
-        const data=await response.json();
+    }
 
-        if(data.display_name){
+});
 
-            document.getElementById("locationMsg").innerHTML=
-            "📍 "+data.display_name;
 
-        }
-
-    }catch(e){
-
-        document.getElementById("locationMsg").innerHTML=
-        "📍 قاعة مون بلازا - دار الأشغال العسكرية";
+// عرض اسم القاعة
+document.getElementById("locationMsg").innerHTML =
+"📍 قاعة مون بلازا - دار الأشغال العسكرية";
 
     }
 
