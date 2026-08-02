@@ -1,604 +1,259 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-<title>كريم ❤️ يارا | دعوة حفل الخطوبة</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Great+Vibes&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-font-family:'Cairo',sans-serif;
-}
-
-html,body{
-width:100%;
-height:100%;
-background:#faf6f0;
-color:#2c2c2c;
-text-align:center;
-overflow-x:hidden;
-}
-
-.cover{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100vh;
-height:100dvh;
-background:
-linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.85)),
-url("https://images.unsplash.com/photo-1519741497674-611481863552?w=1600") center/cover;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-color:#fff;
-z-index:1000;
-padding:15px;
-transition:.4s;
-}
-
-.cover.hidden{
-opacity:0;
-visibility:hidden;
-pointer-events:none;
-}
-
-.cover-content{
-width:100%;
-max-width:320px;
-display:flex;
-flex-direction:column;
-gap:8px;
-align-items:center;
-}
-
-.cover-icon{
-font-size:26px;
-}
 
-.cover-sub{
-font-size:13px;
-color:#f3e5ab;
-font-family:'Amiri',serif;
-}
 
-.cover h1{
-font-family:'Great Vibes',cursive;
-font-size:34px;
-color:#f6d365;
-}
 
-.cover h1 span{
-color:#ff5c8a;
-}
 
-.cover p{
-font-size:13px;
-font-family:'Amiri',serif;
-margin-bottom:8px;
-}
 
-.cover button{
+3f033bdc-06c3-4826-9d01-9ed8175654fe.png
+ شوفت عامل ازاي ليه متعمليش كدا ليه الي ميعرفش اللوكيشن اول ما يفتح يروحله من الموقع الي هو فيه للموقع الي انا حطاه ليه يسطا ليه متعملش اتوماتك في البحث  الاحداثيات او العنوان بالعربي بدل كطلمه جاري التحميل الي بقالها ساعه مكتوبه دي   دا كود الويب سايت عدل عليه وشوف مشكلته اي لان لما بدوس علي فتح اللوكيشن علي الخريطه علي فونات يا بيروح علي موقع غلط يا بيروع علي الموقع ومبيحددش انهي بيس يعني بيروح منغير ما يحط دبوس 
 
-padding:12px 30px;
-border:none;
-border-radius:50px;
-cursor:pointer;
+أيوة فاهم قصدك، وإنت عايز يبقى زي Google Maps بالظبط:
 
-background:
-linear-gradient(135deg,#f6d365,#b8860b);
+أول ما المستخدم يفتح الموقع يجيب مكانه الحالي.
 
-color:#fff;
-font-size:15px;
-font-weight:bold;
+يعمل Route تلقائي من مكانه للمبنى.
 
-box-shadow:0 5px 15px rgba(0,0,0,.2);
+يحط دبوس على المبنى.
 
-}
+لو GPS مقفول أو رفض الإذن يكتب عنوان المبنى بالعربي بدل "جاري التحميل".
 
-.invitation-container{
-display:none;
-}
+وزر "فتح في الخرائط" يفتح المكان بالدبوس الصح على أي موبايل.
 
-.invitation-container.visible{
-display:block;
-}
+لكن فيه حاجة مهمة:
+أنت لحد دلوقتي ما بعتليش كود الموقع. الصورة لوحدها مش هتخليني أعرف المشكلة.
 
-.hero{
+ابعت واحد من دول:
 
-min-height:45vh;
+ملف index.html
 
-background:
-linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.6)),
-url("https://images.unsplash.com/photo-1519741497674-611481863552?w=1600") center/cover;
+أو ملف script.js
 
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
+أو المشروع مضغوط ZIP
 
-color:white;
+وأنا هعدله كله.
 
-padding:20px;
+غالباً المشكلة عندك واحدة من دول
+١- بتفتح Google Maps بالإحداثيات غلط
+الغلط:
 
-}
+window.open("https://maps.google.com/?q="+lat+","+lng);
+أو
 
-.hero h1{
+window.open("geo:"+lat+","+lng);
+وده ساعات يفتح المكان من غير دبوس.
 
-font-family:'Great Vibes';
-font-size:38px;
-color:#f6d365;
+الصحيح:
 
-}
+const lat = 29.948278;
+const lng = 31.265361;
 
-section{
+window.open(
+`
 
-padding:25px 12px;
 
-}
+نص واحد ملصق (2).txt
+مستند
+اهو 
 
-.section-title{
+لقيت المشكلة، والكود اللي بعتّه مفيهوش أي كود بيجيب موقع المستخدم أصلاً. هو مجرد زر بيفتح Google Maps بالرابط ده: 
 
-color:#b8860b;
-font-size:22px;
-font-family:'Amiri';
 
-}
+وده سبب إن:
 
-.message{
+ساعات يفتح من غير دبوس.
 
-background:white;
+وساعات يفتح على مكان قريب.
 
-width:92%;
-max-width:450px;
+ومفيش أي اتجاهات من مكان المستخدم.
 
-margin:auto;
+ومفيش "جاري تحديد موقعك" أو تحويلها لعنوان.
 
-padding:18px;
+عدل الرابط ده
+احذف:
 
-border-radius:18px;
-
-box-shadow:0 5px 15px rgba(0,0,0,.08);
-
-}
-
-.message p{
-
-font-family:'Amiri';
-line-height:1.8;
-
-}
-
-.photos-grid{
-
-display:flex;
-justify-content:center;
-align-items:center;
-gap:10px;
-margin-top:15px;
-
-}
-
-.photo-card{
-
-background:white;
-
-padding:5px;
-
-border-radius:10px;
-
-box-shadow:0 3px 12px rgba(0,0,0,.08);
-
-width:42%;
-
-max-width:140px;
-
-}
-
-.photo-card img{
-
-width:100%;
-height:140px;
-object-fit:cover;
-border-radius:8px;
-
-}
-
-.photo-card h3{
-
-margin-top:5px;
-color:#b8860b;
-font-family:'Amiri';
-
-}
-
-.details-card{
-
-background:white;
-
-width:92%;
-max-width:450px;
-
-margin:auto;
-
-padding:18px;
-
-border-radius:18px;
-
-box-shadow:0 4px 20px rgba(0,0,0,.08);
-
-}
-
-.details-item{
-
-margin:10px 0;
-font-family:'Amiri';
-
-}
-
-.location-box{
-
-margin-top:20px;
-
-display:flex;
-flex-direction:column;
-align-items:center;
-gap:10px;
-
-}
-
-.animated-pin{
-
-font-size:28px;
-
-animation:bounce 1s infinite alternate;
-
-}
-
-@keyframes bounce{
-
-from{
-transform:translateY(0);
-}
-
-to{
-transform:translateY(-8px);
-}
-
-}
-
-.location-msg{
-
-background:#fff7e8;
-
-padding:7px 15px;
-
-border-radius:30px;
-
-color:#b8860b;
-
-font-family:'Amiri';
-
-font-weight:bold;
-
-border:1px dashed #b8860b;
-
-}
-
-.location-btn{
-
-display:inline-block;
-
-padding:12px 22px;
-
-background:linear-gradient(135deg,#b8860b,#996d05);
-
-color:white;
-
-text-decoration:none;
-
-border-radius:50px;
-
-font-weight:bold;
-
-box-shadow:0 4px 10px rgba(0,0,0,.2);
-
-}
-
-footer{
-
-background:#1a1a1a;
-
-color:white;
-
-padding:20px;
-
-font-family:'Amiri';
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<audio id="bgMusic" loop preload="auto">
-<source src="YOUR_AUDIO_LINK.mp3" type="audio/mpeg">
-</audio>
-
-<div class="cover" id="cover">
-
-<div class="cover-content">
-
-<div class="cover-icon">💍</div>
-
-<div class="cover-sub">
-دعوة حضور حفل الخطوبة
-</div>
-
-<h1>
-كريم <span>❤️</span> يارا
-</h1>
-
-<p>
-الحب يجمعنا والأقدار تكتب لنا أجمل البدايات
-</p>
-
-<button onclick="openInvitation()">
-✨ عرض الدعوة ✨
-</button>
-
-</div>
-
-</div>
-
-<div class="invitation-container" id="invitationPage">
-
-<section class="hero">
-
-<h2 style="font-size:14px;color:#f3e5ab">
-حفل خطوبة
-</h2>
-
-<h1>
-كريم ❤️ يارا
-</h1>
-
-<p style="font-family:'Amiri'">
-ونبدأ معاً رحلة جديدة
-</p>
-
-</section>
-
-<section class="message">
-
-<h2 class="section-title">
-بكل الحب
-</h2>
-
-<p>
-
-بكل السعادة والسرور،
-نتشرف بدعوتكم لحضور حفل خطوبتنا البهيج
-<br><br>
-
-وجودكم يكمل فرحتنا ❤️
-
-</p>
-
-</section>
-
-<section style="background:#fff8ef">
-
-<h2 class="section-title">
-
-حكايتنا من البداية
-
-</h2>
-
-<div class="photos-grid">
-
-<div class="photo-card">
-
-<img src="photo_2026-07-31_19-03-12.jpg">
-
-<h3>
-كريم
-</h3>
-
-</div>
-
-<div style="font-size:25px">
-❤️
-</div>
-
-<div class="photo-card">
-
-<img src="photo_2026-07-31_19-03-17.jpg">
-
-<h3>
-يارا
-</h3>
-
-</div>
-
-</div>
-
-</section>
-
-<section style="background:#fcf2e3">
-
-<h2 class="section-title">
-تفاصيل المناسبة
-</h2>
-
-<div class="details-card">
-
-<div class="details-item">
-📅 الأحد 9 / 8 / 2026
-</div>
-
-<div class="details-item">
-🕗 الساعة 8 مساءً
-</div>
-
-<div class="details-item">
-🏰 قاعة مون بلازا - دار الأشغال العسكرية
-</div>
-
-<div class="details-item">
-📍 كورنيش المعادي - القاهرة
-</div>
-<div class="location-box">
-
-    <div class="animated-pin">
-        📍
-    </div>
-
-    <div class="location-msg" id="locationMsg">
-        جاري تحديد موقعك...
-    </div>
-
-<a class="location-btn" id="locationBtn" href="#">
-    📍 افتح الموقع على الخريطة
+<a href="https://www.google.com/maps/search/?api=1&query=قاعة+مون+بلازا+دار+الأشغال+العسكرية+29.948057682135286,31.265317411203814"
+target="_blank"
+class="location-btn">
+افتح الموقع على الخريطة
 </a>
+واستبدله بـ
 
-</div>
+<a id="locationBtn"
+class="location-btn"
+href="#">
+افتح الموقع على الخريطة
+</a>
+قبل </body> مباشرة أضف الكود ده
+const DEST_LAT = 29.948057682135286;
+const DEST_LNG = 31.265317411203814;
 
-</div>
+const locationBtn = document.getElementById("locationBtn");
+const locationMsg = document.querySelector(".location-msg");
 
-</section>
+function openMaps(userLat, userLng){
 
-<footer>
+    const url =
+`https://www.google.com/maps/dir/?api=1&origin=${userLat},${userLng}&destination=${DEST_LAT},${DEST_LNG}&travelmode=driving`;
 
-كريم <span style="color:#ff4d7a;">❤️</span> يارا
-
-<br><br>
-
-في انتظار تشريفكم لنحتفل معاً بفرحتنا
-
-</footer>
-
-</div>
-
-<script>
-
-const DESTINATION = {
-
-lat:29.948278,
-
-lng:31.265361,
-
-name:"قاعة مون بلازا - دار الأشغال العسكرية"
-
-};
-
-function openInvitation(){
-
-var music=document.getElementById("bgMusic");
-
-music.load();
-
-music.play().catch(()=>{});
-
-document.getElementById("cover").classList.add("hidden");
-
-document.getElementById("invitationPage").classList.add("visible");
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
-
-setTimeout(initLocation,500);
-
+    window.open(url,"_blank");
 }
 
-function initLocation(){
+if(navigator.geolocation){
 
-const btn=document.getElementById("locationBtn");
+    navigator.geolocation.getCurrentPosition(
 
-const msg=document.getElementById("locationMsg");
+        function(position){
 
-if(!navigator.geolocation){
+            const userLat = position.coords.latitude;
+            const userLng = position.coords.longitude;
 
-msg.innerHTML="📍 "+DESTINATION.name;
+            locationMsg.innerHTML =
+            "📍 تم تحديد موقعك - اضغط لبدء الملاحة";
 
-btn.href=`https://www.google.com/maps/search/?api=1&query=${DESTINATION.lat},${DESTINATION.lng}`;
+            locationBtn.onclick = function(e){
+                e.preventDefault();
+                openMaps(userLat,userLng);
+            };
 
-return;
+        },
 
-}
+        function(){
 
-msg.innerHTML="📍 جاري تحديد موقعك...";
+            locationMsg.innerHTML =
+            "📍 قاعة مون بلازا - دار الأشغال العسكرية";
 
-navigator.geolocation.getCurrentPosition(
+            locationBtn.href =
+`https://www.google.com/maps/search/?api=1&query=${DEST_LAT},${DEST_LNG}`;
 
-function(position){
+        },
 
-const userLat=position.coords.latitude;
+        {
+            enableHighAccuracy:true,
+            timeout:10000,
+            maximumAge:0
+        }
 
-const userLng=position.coords.longitude;
-
-msg.innerHTML="✅ تم تحديد موقعك بنجاح";
-
-btn.onclick=function(e){
-
-e.preventDefault();
-
-const isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent);
-
-if(isIOS){
-
-window.location.href=
-`http://maps.apple.com/?saddr=${userLat},${userLng}&daddr=${DESTINATION.lat},${DESTINATION.lng}`;
+    );
 
 }else{
 
-window.location.href=
-`https://www.google.com/maps/dir/?api=1&origin=${userLat},${userLng}&destination=${DESTINATION.lat},${DESTINATION.lng}&travelmode=driving`;
+    locationMsg.innerHTML =
+    "📍 قاعة مون بلازا - دار الأشغال العسكرية";
+
+    locationBtn.href =
+`https://www.google.com/maps/search/?api=1&query=${DEST_LAT},${DEST_LNG}`;
 
 }
+هيحصل إيه؟
+✔ أول ما الصفحة تفتح هيطلب إذن الموقع.
 
-};
+✔ لو وافق:
+
+هيجيب مكانه الحالي.
+
+أول ما يضغط الزر يفتح Google Maps بالملاحة من مكانه الحالي إلى القاعة.
+
+هيظهر الدبوس على القاعة.
+
+✔ لو رفض:
+
+بدل "جاري التحميل" هيكتب:
+
+📍 قاعة مون بلازا - دار الأشغال العسكرية
+والزر هيفتح القاعة بالدبوس.
+
+أنا كمان لاحظت مشكلة تانية
+الإحداثيات اللي كنت باعتها قبل كده:
+
+29.948278
+31.265361
+لكن في الكود الحالي مكتوب:
+
+29.948057682135286
+31.265317411203814
+الفرق بسيط، لكنه ممكن يخلي الدبوس يقع على مبنى مجاور في بعض الهواتف. 
+
+
+أقدر أعمله أحسن من كده
+أقدر أعدلك الصفحة بحيث تبقى زي تطبيقات الدعوات الاحترافية:
+
+يجيب الموقع تلقائيًا.
+
+يحول الإحداثيات إلى عنوان عربي تلقائيًا (Reverse Geocoding) بدل أي رسالة تحميل.
+
+يفتح Google Maps أو Apple Maps حسب نوع الهاتف.
+
+يضمن ظهور الدبوس في المكان الصحيح على جميع الأجهزة.
+
+ولو المستخدم داخل من موبايل، يبدأ الملاحة مباشرة بدون أي خطوة إضافية.
+
+وده هيحل المشاكل اللي واجهتك على الموبايلات بشكل أفضل من مجرد تغيير الرابط.
+
+
+دي نقطة مهمة جدًا، لكن لازم أوضح حاجة: أنت كمبرمج للموقع ما تقدرش تجبر Google Maps يحدث الـGPS أو يجبر المستخدم يوافق على إذن الموقع. ده قرار من نظام أندرويد/آيفون وتطبيق Google Maps نفسه.
+
+اللي تقدر تعمله من الموقع هو إنك تستخدم موقع المستخدم الحالي إذا المتصفح رجّعه، وبعدين تبني رابط الملاحة منه. بدل ما تخلي Google Maps هو اللي يخمن نقطة البداية.
+
+استخدم الكود ده:
+
+navigator.geolocation.getCurrentPosition(function(position){
+
+    const userLat = position.coords.latitude;
+    const userLng = position.coords.longitude;
+
+    const destLat = 29.9480278;
+    const destLng = 31.2653333;
+
+    window.location.href =
+    `https://www.google.com/maps/dir/?api=1&origin=${userLat},${userLng}&destination=${destLat},${destLng}&travelmode=driving`;
 
 },
-
-function(){
-
-msg.innerHTML="📍 قاعة مون بلازا - دار الأشغال العسكرية";
-
-btn.href=
-`https://www.google.com/maps/search/?api=1&query=${DESTINATION.lat},${DESTINATION.lng}`;
-
+function(error){
+    alert("من فضلك اسمح للموقع بالوصول إلى موقعك.");
 },
-
 {
+    enableHighAccuracy: true,
+    timeout: 15000,
+    maximumAge: 0
+});
+وكمان تأكد من الآتي على الموبايل:
 
-enableHighAccuracy:true,
+افتح إعدادات الهاتف → الموقع (Location) وتأكد إنه On.
 
-timeout:10000,
+افتح إعدادات التطبيقات → Chrome (أو المتصفح) → الأذونات → الموقع واختر Allow while using the app.
 
-maximumAge:0
+افتح إعدادات التطبيقات → Google Maps → الأذونات → الموقع واختر Allow all the time أو Allow while using the app.
 
-}
+فعل High accuracy أو دقة عالية في إعدادات الموقع لو موجودة.
 
-);
+عندي سؤال مهم جدًا:
+المشكلة بتحصل على موبايلك أنت بس؟ ولا جربت من موبايل تاني ونفس المشكلة؟
 
-}
+لأن لو نفس الموقع اشتغل صح على موبايل تاني، يبقى المشكلة في إعدادات الهاتف الأول أو تحديث الـGPS، مش في الكود. أما لو كل الموبايلات بتعمل نفس السلوك، فساعتها هنغير طريقة فتح الخرائط بالكامل ونستخدم أسلوب مختلف.
+
+
+
+!DOCTYPE html.txt
+مستند
+ عدل وابعته كامل 
+
+راجعت الملف، ولقيت سببين بيخلوا الكود يتصرف بشكل غريب:
+
+فيه كودين مختلفين لزر الموقع (onclick داخل initLocation() ثم addEventListener بعده)، وده بيخلي الاتنين يشتغلوا ويتعارضوا. 
+
+ 
+
+
+آخر الملف فيه أقواس } زيادة وكود بينادي على getAddress() رغم إن الدالة دي اتشالت، وبالتالي السكربت نفسه فيه أخطاء تركيبية (Syntax/Reference Errors). 
+
+
+اعمل الآتي فقط
+احذف كل شيء من أول:
+
+document.getElementById("locationBtn").addEventListener
+إلى آخر <script>.
+
+ثم ضع هذا الكود مكانه:
+
 const DEST_LAT = 29.9480278;
 const DEST_LNG = 31.2653333;
 
@@ -651,8 +306,330 @@ document.getElementById("locationBtn").onclick = function (e) {
 
 document.getElementById("locationMsg").innerHTML =
 "📍 قاعة مون بلازا - دار الأشغال العسكرية";
+لكن...
+أنا شايف إننا بنلف حوالين المشكلة، والموقع بقى فيه أكواد متكررة واتعدّل أكثر من مرة.
+
+الأفضل إني أنضف الملف كله:
+
+أحذف الأكواد المكررة.
+
+أصلح الأقواس.
+
+أخلي زر الموقع يشتغل بطريقة واحدة فقط.
+
+أخلي الكود حوالي 50 سطر بدل 150 سطر.
+
+وأرجعه لك كملف HTML جاهز ترفعه على GitHub بدون أي أخطاء.
+
+وده هيكون أسهل وأضمن من ترقيع الملف الحالي.
+
+
+
+!DOCTYPE html(1).txt
+مستند
+كدا تمام َ!
+
+أيوة، بالشكل الحالي الملف بقى سليم من ناحية الـ JavaScript، ومبقاش فيه الأقواس الزيادة ولا استدعاء getAddress() المحذوف. 
+
+
+لكن لسه عندك حاجة أنصحك تعملها لأنها هتمنع التعارض:
+
+عندك دالة initLocation() لسه بتعمل btn.onclick = ...، وبعدها في آخر الملف بتعمل document.getElementById("locationBtn").onclick = ... مرة تانية، يعني الزر بيتربط بطريقتين مختلفتين. 
+
+ 
+
+
+الأفضل إنك تحذف دالة initLocation() بالكامل (من أول function initLocation(){ لحد القوس الأخير الخاص بها)، وتخلي الزر يعتمد فقط على الكود الأخير. وبعدها في openInvitation() احذف السطر:
+
+setTimeout(initLocation,500);
+ويبقى:
+
+function openInvitation(){
+
+    var music=document.getElementById("bgMusic");
+
+    music.load();
+
+    music.play().catch(()=>{});
+
+    document.getElementById("cover").classList.add("hidden");
+
+    document.getElementById("invitationPage").classList.add("visible");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+ده هيخلي فيه مسار واحد فقط لفتح الخرائط بدل مسارين.
+
+إذا بعد التعديل ده لسه بيفتح من آخر لوكيشن في Google Maps، فالمشكلة مش هتكون في موقعك، لأن الكود بيمرر origin من navigator.geolocation بالفعل. ساعتها هنحتاج نعرف:
+
+هل navigator.geolocation بيرجع إحداثيات قديمة؟
+
+ولا Google Maps بيتجاهل origin على الجهاز نفسه؟
+
+وساعتها هنقدر نحدد الحل المناسب.
+
+
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> <title>كريم ❤️ يارا | دعوة حفل الخطوبة</title> <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Great+Vibes&family=Amiri:wght@400;700&display=swap" rel="stylesheet"> <style> * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
+
+    html, body {
+        width: 100%;
+        height: 100%;
+        background: #faf6f0;
+        color: #2c2c2c;
+        text-align: center;
+        overflow-x: hidden;
+    }
+
+    .cover {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url("https://images.unsplash.com/photo-1519741497674-611481863552?w=1600") center/cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        z-index: 1000;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+        padding: 15px;
+    }
+    .cover.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    
+    .cover-content {
+        width: 100%;
+        max-width: 320px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+    
+    .cover-icon { font-size: 26px; }
+    .cover-sub { font-size: 13px; color: #f3e5ab; font-family: 'Amiri', serif; }
+    .cover h1 {
+        font-family: 'Great Vibes', cursive;
+        font-size: 34px;
+        color: #f6d365;
+        line-height: 1.2;
+        margin: 2px 0;
+    }
+    .cover h1 span { color: #ff5c8a; }
+    .cover p { font-size: 12px; opacity: 0.9; font-family: 'Amiri', serif; margin-bottom: 8px; }
+    
+    .cover button {
+        padding: 12px 30px;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        background: linear-gradient(135deg, #f6d365, #b8860b);
+        color: white;
+        font-size: 15px;
+        font-weight: 700;
+        box-shadow: 0 4px 15px rgba(184, 134, 11, 0.4);
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    .invitation-container { display: none; width: 100%; }
+    .invitation-container.visible { display: block; }
+    
+    .hero {
+        min-height: 45vh;
+        background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url("https://images.unsplash.com/photo-1519741497674-611481863552?w=1600") center/cover;
+        display: flex; justify-content: center; align-items: center; flex-direction: column; color: white; padding: 20px;
+    }
+    .hero h1 { font-family: 'Great Vibes', cursive; font-size: 36px; color: #f6d365; }
+    
+    section { padding: 25px 12px; width: 100%; }
+    .section-title { color: #b8860b; font-size: 20px; margin-bottom: 10px; font-family: 'Amiri', serif; }
+    
+    .message { background: white; border-radius: 15px; width: 92%; max-width: 450px; margin: 15px auto; padding: 18px 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+    .message p { font-size: 14px; line-height: 1.7; font-family: 'Amiri', serif; }
+    
+    .photos-grid { 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        gap: 8px; 
+        margin-top: 10px; 
+        width: 100%; 
+    }
+    .photo-card { 
+        background: white; 
+        padding: 5px; 
+        border-radius: 10px; 
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08); 
+        width: 42%; 
+        max-width: 130px; 
+    }
+    .photo-card img { width: 100%; height: 130px; object-fit: cover; border-radius: 8px; }
+    .photo-card h3 { margin-top: 4px; font-size: 14px; color: #b8860b; font-family: 'Amiri', serif; }
+    
+    .details-card { background: white; width: 92%; max-width: 450px; margin: 15px auto 0; padding: 18px 12px; border-radius: 18px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+    .details-item { font-size: 13px; margin: 8px 0; font-family: 'Amiri', serif; }
+    
+    .location-box {
+        margin-top: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .animated-pin {
+        font-size: 24px;
+        animation: bouncePin 1.2s infinite alternate;
+    }
+
+    @keyframes bouncePin {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-8px); }
+    }
+
+    .location-msg {
+        font-size: 12px;
+        color: #b8860b;
+        font-family: 'Amiri', serif;
+        font-weight: bold;
+        background: #fff8eb;
+        padding: 4px 12px;
+        border-radius: 20px;
+        border: 1px dashed #b8860b;
+    }
+
+    .location-btn {
+        display: inline-block; 
+        padding: 11px 22px;
+        background: linear-gradient(135deg, #b8860b, #996d05); 
+        color: white;
+        text-decoration: none; 
+        font-size: 13px; 
+        font-weight: 700; 
+        border-radius: 50px;
+        box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
+        transition: transform 0.2s;
+    }
+
+    .location-btn:active {
+        transform: scale(0.95);
+    }
+    
+    footer { background: #1a1a1a; color: white; padding: 20px 10px; font-size: 13px; font-family: 'Amiri', serif; width: 100%; }
+
+    @media (min-width: 768px) {
+        .cover h1 { font-size: 55px; }
+        .hero h1 { font-size: 50px; }
+        .cover-content { max-width: 500px; gap: 12px; }
+        .cover button { padding: 12px 35px; font-size: 17px; }
+    }
+</style>
+</head> <body>
+
+<audio id="bgMusic" loop preload="auto">
+    <source src="YOUR_AUDIO_LINK.mp3" type="audio/mpeg">
+</audio>
+
+<div class="cover" id="cover">
+    <div class="cover-content">
+        <div class="cover-icon">💍</div>
+        <div class="cover-sub">دعوة حضور حفل الخطوبة</div>
+        <h1>كريم <span>❤️</span> يارا</h1>
+        <p>الحب يجمعنا والأقدار تكتب لنا أجمل البدايات</p>
+        <button onclick="openInvitation()">✨ عرض الدعوة ✨</button>
+    </div>
+</div>
+
+<div class="invitation-container" id="invitationPage">
+    <section class="hero">
+        <h2 style="font-size: 14px; color: #f3e5ab; letter-spacing: 2px;">حفل خطوبة</h2>
+        <h1>كريم ❤️ يارا</h1>
+        <p style="font-size: 15px; font-family: 'Amiri', serif; margin-top: 6px;">ونبدأ معاً رحلة جديدة</p>
+    </section>
+
+    <section class="message">
+        <h2 class="section-title">بكل الحب</h2>
+        <p>
+            بكل السعادة والسرور، نتشرف بدعوتكم لحضور حفل خطوبتنا البهيج<br>
+            لنشارك معاً أجمل لحظات العمر ونبدأ صفحة جديدة من حياتنا.<br>
+            <strong>وجودكم يكمل فرحتنا</strong>
+        </p>
+    </section>
+
+    <section style="background: linear-gradient(135deg, #fff3e6, #fff9f1);">
+        <h2 class="section-title">حكايتنا من البداية</h2>
+        <div class="photos-grid">
+            <div class="photo-card">
+                <img src="photo_2026-07-31_19-03-12.jpg" alt="العريس كريم">
+                <h3>كريم</h3>
+            </div>
+            <div style="font-size: 20px; color: #ff4d7a; display: flex; align-items: center; justify-content: center;">❤️</div>
+            <div class="photo-card">
+                <img src="photo_2026-07-31_19-03-17.jpg" alt="العروسة يارا">
+                <h3>يارا</h3>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: #fcf2e3;">
+        <h2 class="section-title">تفاصيل المناسبة</h2>
+        <div class="details-card">
+            <div class="details-item">📅 الأحد 9 / 8 / 2026</div>
+            <div class="details-item">🕗 الساعة 8 مساءً</div>
+            <div class="details-item">🏰 قاعة مون بلازا - دار الأشغال العسكرية</div>
+            <div class="details-item">📍 كورنيش المعادي، القاهرة</div>
+            
+            <div class="location-box">
+                <div class="animated-pin">📍</div>
+                <div class="location-msg">اضغط بالأسفل للذهاب لمكان القاعة مباشرة</div>
+                
+                <!-- الرابط السحري المضبوط بالاسم والإحداثيات عشان يفتح بالدبوس وبزرار الاتجاهات زي الصورة بالمللي -->
+                <a href="https://www.google.com/maps/search/?api=1&query=قاعة+مون+بلازا+دار+الأشغال+العسكرية+29.948057682135286,31.265317411203814" target="_blank" class="location-btn">
+                    افتح الموقع على الخريطة
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        كريم <span style="color: #ff4d7a;">❤️</span> يارا
+        <br><br>
+        في انتظار تشريفكم لنحتفل معاً بفرحتنا
+    </footer>
+</div>
+
+<script>
+    function openInvitation() {
+        var music = document.getElementById('bgMusic');
+        
+        music.load();
+        var playPromise = music.play();
+        
+        if (playPromise !== undefined) {
+            playPromise.then(_ => {
+            }).catch(error => {
+                console.log("Autoplay prevented or failed", error);
+            });
+        }
+
+        document.getElementById('cover').classList.add('hidden');
+        document.getElementById('invitationPage').classList.add('visible');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 </script>
+</body> </html>
 
-</body>
 
-</html>
+إغلاق
+Beta
+0 / 0
+used queries
+1
