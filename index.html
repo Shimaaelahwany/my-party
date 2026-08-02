@@ -599,62 +599,58 @@ maximumAge:0
 );
 
 }
-document.getElementById("locationBtn").addEventListener("click", function (e) {
+const DEST_LAT = 29.9480278;
+const DEST_LNG = 31.2653333;
+
+document.getElementById("locationBtn").onclick = function (e) {
 
     e.preventDefault();
 
-    const lat = 29.9480278;
-    const lng = 31.2653333;
-
-    // Android
-    if (/Android/i.test(navigator.userAgent)) {
-
-        // نحاول فتح Google Maps مباشرة
-        window.location.href = `google.navigation:q=${lat},${lng}`;
-
-        // لو فشل، افتح الرابط العادي
-        setTimeout(() => {
-            window.location.href =
-            `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}&travelmode=driving`;
-        }, 1000);
-
-    }
-
-    // iPhone
-    else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-
-        window.location.href =
-        `https://maps.apple.com/?daddr=${lat},${lng}`;
-
-    }
-
-    // كمبيوتر
-    else {
-
+    if (!navigator.geolocation) {
         window.open(
-        `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}&travelmode=driving`,
-        "_blank"
+            `https://www.google.com/maps/search/?api=1&query=${DEST_LAT},${DEST_LNG}`,
+            "_blank"
         );
-
+        return;
     }
 
-});
+    navigator.geolocation.getCurrentPosition(
 
+        function (position) {
 
-// عرض اسم القاعة
+            const origin =
+                position.coords.latitude + "," +
+                position.coords.longitude;
+
+            window.location.href =
+                `https://www.google.com/maps/dir/?api=1` +
+                `&origin=${origin}` +
+                `&destination=${DEST_LAT},${DEST_LNG}` +
+                `&travelmode=driving`;
+
+        },
+
+        function () {
+
+            window.open(
+                `https://www.google.com/maps/search/?api=1&query=${DEST_LAT},${DEST_LNG}`,
+                "_blank"
+            );
+
+        },
+
+        {
+            enableHighAccuracy: true,
+            timeout: 20000,
+            maximumAge: 0
+        }
+
+    );
+
+};
+
 document.getElementById("locationMsg").innerHTML =
 "📍 قاعة مون بلازا - دار الأشغال العسكرية";
-
-    }
-
-}
-
-window.addEventListener("load",function(){
-
-    getAddress();
-
-});
-
 </script>
 
 </body>
