@@ -126,7 +126,7 @@
             100% { transform: translateY(-8px); }
         }
 
-        .location-msg { 
+        .location-msg {
             font-size: 12px;
             color: #b8860b;
             font-family: 'Amiri', serif;
@@ -148,6 +148,8 @@
             border-radius: 50px;
             box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
             transition: transform 0.2s;
+            border: none;
+            cursor: pointer;
         }
 
         .location-btn:active {
@@ -223,10 +225,10 @@
                     <div class="animated-pin">📍</div>
                     <div class="location-msg">اضغط بالأسفل للذهاب لمكان القاعة مباشرة</div>
                     
-                    <!-- ✅ التعديل هنا: استخدام رابط خرائط جوجل المباشر والمضمون للموبايل -->
-<a href="https://maps.google.com/?cid=10336221166207480341" target="_blank" class="location-btn">
-    افتح الموقع على الخريطة
-</a>
+                    <!-- زر التشغيل الذكي للإحداثيات والدبوس المخصص -->
+                    <button onclick="openGoogleMap()" class="location-btn">
+                        افتح الموقع على الخريطة
+                    </button>
                 </div>
             </div>
         </section>
@@ -255,6 +257,24 @@
             document.getElementById('cover').classList.add('hidden');
             document.getElementById('invitationPage').classList.add('visible');
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // دالة ذكية لتوجيه الموبايل للإحداثيات والدبوس الخاص بك مباشرة
+        function openGoogleMap() {
+            const lat = "29.9484686";
+            const lng = "31.2661320";
+            const label = encodeURIComponent("قاعة مون بلازا - دار الأشغال العسكرية");
+            
+            if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                // للآيفون (يفتح خرائط أبل أو متصفح سفاري بسلاسة تامة)
+                window.location.href = `https://maps.apple.com/?q=${lat},${lng}`;
+            } else if (/Android/i.test(navigator.userAgent)) {
+                // للأندرويد (يفتح تطبيق خرائط جوجل مباشرة على الدبوس)
+                window.location.href = `geo:${lat},${lng}?q=${lat},${lng}(${label})`;
+            } else {
+                // لأي جهاز كمبيوتر أو متصفح آخر
+                window.open(`https://www.google.com/maps/search/?api=1&query=${lat},${lng}`, '_blank');
+            }
         }
     </script>
 </body>
