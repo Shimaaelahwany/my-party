@@ -1,261 +1,651 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>كريم ❤️ يارا | دعوة حفل الخطوبة</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Great+Vibes&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
-        
-        html, body {
-            width: 100%;
-            height: 100%;
-            background: #faf6f0;
-            color: #2c2c2c;
-            text-align: center;
-            overflow-x: hidden;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-        .cover {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%;
-            height: 100vh;
-            height: 100dvh;
-            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url("https://images.unsplash.com/photo-1519741497674-611481863552?w=1600") center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            z-index: 1000;
-            transition: opacity 0.4s ease, visibility 0.4s ease;
-            padding: 15px;
-        }
-        .cover.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-        
-        .cover-content {
-            width: 100%;
-            max-width: 320px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-        
-        .cover-icon { font-size: 26px; }
-        .cover-sub { font-size: 13px; color: #f3e5ab; font-family: 'Amiri', serif; }
-        .cover h1 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 34px;
-            color: #f6d365;
-            line-height: 1.2;
-            margin: 2px 0;
-        }
-        .cover h1 span { color: #ff5c8a; }
-        .cover p { font-size: 12px; opacity: 0.9; font-family: 'Amiri', serif; margin-bottom: 8px; }
-        
-        .cover button {
-            padding: 12px 30px;
-            border-radius: 50px;
-            border: none;
-            cursor: pointer;
-            background: linear-gradient(135deg, #f6d365, #b8860b);
-            color: white;
-            font-size: 15px;
-            font-weight: 700;
-            box-shadow: 0 4px 15px rgba(184, 134, 11, 0.4);
-            -webkit-tap-highlight-color: transparent;
-        }
-        
-        .invitation-container { display: none; width: 100%; }
-        .invitation-container.visible { display: block; }
-        
-        .hero {
-            min-height: 45vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url("https://images.unsplash.com/photo-1519741497674-611481863552?w=1600") center/cover;
-            display: flex; justify-content: center; align-items: center; flex-direction: column; color: white; padding: 20px;
-        }
-        .hero h1 { font-family: 'Great Vibes', cursive; font-size: 36px; color: #f6d365; }
-        
-        section { padding: 25px 12px; width: 100%; }
-        .section-title { color: #b8860b; font-size: 20px; margin-bottom: 10px; font-family: 'Amiri', serif; }
-        
-        .message { background: white; border-radius: 15px; width: 92%; max-width: 450px; margin: 15px auto; padding: 18px 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .message p { font-size: 14px; line-height: 1.7; font-family: 'Amiri', serif; }
-        
-        .photos-grid { 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            gap: 8px; 
-            margin-top: 10px; 
-            width: 100%; 
-        }
-        .photo-card { 
-            background: white; 
-            padding: 5px; 
-            border-radius: 10px; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08); 
-            width: 42%; 
-            max-width: 130px; 
-        }
-        .photo-card img { width: 100%; height: 130px; object-fit: cover; border-radius: 8px; }
-        .photo-card h3 { margin-top: 4px; font-size: 14px; color: #b8860b; font-family: 'Amiri', serif; }
-        
-        .details-card { background: white; width: 92%; max-width: 450px; margin: 15px auto 0; padding: 18px 12px; border-radius: 18px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
-        .details-item { font-size: 13px; margin: 8px 0; font-family: 'Amiri', serif; }
-        
-        .location-box {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
+<title>كريم ❤️ يارا | دعوة حفل الخطوبة</title>
 
-        .animated-pin {
-            font-size: 24px;
-            animation: bouncePin 1.2s infinite alternate;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Great+Vibes&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 
-        @keyframes bouncePin {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-8px); }
-        }
+<style>
 
-        .location-msg {
-            font-size: 12px;
-            color: #b8860b;
-            font-family: 'Amiri', serif;
-            font-weight: bold;
-            background: #fff8eb;
-            padding: 4px 12px;
-            border-radius: 20px;
-            border: 1px dashed #b8860b;
-        }
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:'Cairo',sans-serif;
+}
 
-        .location-btn {
-            display: inline-block; 
-            padding: 11px 22px;
-            background: linear-gradient(135deg, #b8860b, #996d05); 
-            color: white;
-            text-decoration: none; 
-            font-size: 13px; 
-            font-weight: 700; 
-            border-radius: 50px;
-            box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
-            transition: transform 0.2s;
-        }
+html,body{
+width:100%;
+height:100%;
+background:#faf6f0;
+color:#2c2c2c;
+text-align:center;
+overflow-x:hidden;
+}
 
-        .location-btn:active {
-            transform: scale(0.95);
-        }
-        
-        footer { background: #1a1a1a; color: white; padding: 20px 10px; font-size: 13px; font-family: 'Amiri', serif; width: 100%; }
+.cover{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+height:100dvh;
+background:
+linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.85)),
+url("https://images.unsplash.com/photo-1519741497674-611481863552?w=1600") center/cover;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+color:#fff;
+z-index:1000;
+padding:15px;
+transition:.4s;
+}
 
-        @media (min-width: 768px) {
-            .cover h1 { font-size: 55px; }
-            .hero h1 { font-size: 50px; }
-            .cover-content { max-width: 500px; gap: 12px; }
-            .cover button { padding: 12px 35px; font-size: 17px; }
-        }
-    </style>
+.cover.hidden{
+opacity:0;
+visibility:hidden;
+pointer-events:none;
+}
+
+.cover-content{
+width:100%;
+max-width:320px;
+display:flex;
+flex-direction:column;
+gap:8px;
+align-items:center;
+}
+
+.cover-icon{
+font-size:26px;
+}
+
+.cover-sub{
+font-size:13px;
+color:#f3e5ab;
+font-family:'Amiri',serif;
+}
+
+.cover h1{
+font-family:'Great Vibes',cursive;
+font-size:34px;
+color:#f6d365;
+}
+
+.cover h1 span{
+color:#ff5c8a;
+}
+
+.cover p{
+font-size:13px;
+font-family:'Amiri',serif;
+margin-bottom:8px;
+}
+
+.cover button{
+
+padding:12px 30px;
+border:none;
+border-radius:50px;
+cursor:pointer;
+
+background:
+linear-gradient(135deg,#f6d365,#b8860b);
+
+color:#fff;
+font-size:15px;
+font-weight:bold;
+
+box-shadow:0 5px 15px rgba(0,0,0,.2);
+
+}
+
+.invitation-container{
+display:none;
+}
+
+.invitation-container.visible{
+display:block;
+}
+
+.hero{
+
+min-height:45vh;
+
+background:
+linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.6)),
+url("https://images.unsplash.com/photo-1519741497674-611481863552?w=1600") center/cover;
+
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+
+color:white;
+
+padding:20px;
+
+}
+
+.hero h1{
+
+font-family:'Great Vibes';
+font-size:38px;
+color:#f6d365;
+
+}
+
+section{
+
+padding:25px 12px;
+
+}
+
+.section-title{
+
+color:#b8860b;
+font-size:22px;
+font-family:'Amiri';
+
+}
+
+.message{
+
+background:white;
+
+width:92%;
+max-width:450px;
+
+margin:auto;
+
+padding:18px;
+
+border-radius:18px;
+
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+.message p{
+
+font-family:'Amiri';
+line-height:1.8;
+
+}
+
+.photos-grid{
+
+display:flex;
+justify-content:center;
+align-items:center;
+gap:10px;
+margin-top:15px;
+
+}
+
+.photo-card{
+
+background:white;
+
+padding:5px;
+
+border-radius:10px;
+
+box-shadow:0 3px 12px rgba(0,0,0,.08);
+
+width:42%;
+
+max-width:140px;
+
+}
+
+.photo-card img{
+
+width:100%;
+height:140px;
+object-fit:cover;
+border-radius:8px;
+
+}
+
+.photo-card h3{
+
+margin-top:5px;
+color:#b8860b;
+font-family:'Amiri';
+
+}
+
+.details-card{
+
+background:white;
+
+width:92%;
+max-width:450px;
+
+margin:auto;
+
+padding:18px;
+
+border-radius:18px;
+
+box-shadow:0 4px 20px rgba(0,0,0,.08);
+
+}
+
+.details-item{
+
+margin:10px 0;
+font-family:'Amiri';
+
+}
+
+.location-box{
+
+margin-top:20px;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:10px;
+
+}
+
+.animated-pin{
+
+font-size:28px;
+
+animation:bounce 1s infinite alternate;
+
+}
+
+@keyframes bounce{
+
+from{
+transform:translateY(0);
+}
+
+to{
+transform:translateY(-8px);
+}
+
+}
+
+.location-msg{
+
+background:#fff7e8;
+
+padding:7px 15px;
+
+border-radius:30px;
+
+color:#b8860b;
+
+font-family:'Amiri';
+
+font-weight:bold;
+
+border:1px dashed #b8860b;
+
+}
+
+.location-btn{
+
+display:inline-block;
+
+padding:12px 22px;
+
+background:linear-gradient(135deg,#b8860b,#996d05);
+
+color:white;
+
+text-decoration:none;
+
+border-radius:50px;
+
+font-weight:bold;
+
+box-shadow:0 4px 10px rgba(0,0,0,.2);
+
+}
+
+footer{
+
+background:#1a1a1a;
+
+color:white;
+
+padding:20px;
+
+font-family:'Amiri';
+
+}
+
+</style>
+
 </head>
+
 <body>
 
-    <audio id="bgMusic" loop preload="auto">
-        <source src="YOUR_AUDIO_LINK.mp3" type="audio/mpeg">
-    </audio>
+<audio id="bgMusic" loop preload="auto">
+<source src="YOUR_AUDIO_LINK.mp3" type="audio/mpeg">
+</audio>
 
-    <div class="cover" id="cover">
-        <div class="cover-content">
-            <div class="cover-icon">💍</div>
-            <div class="cover-sub">دعوة حضور حفل الخطوبة</div>
-            <h1>كريم <span>❤️</span> يارا</h1>
-            <p>الحب يجمعنا والأقدار تكتب لنا أجمل البدايات</p>
-            <button onclick="openInvitation()">✨ عرض الدعوة ✨</button>
-        </div>
+<div class="cover" id="cover">
+
+<div class="cover-content">
+
+<div class="cover-icon">💍</div>
+
+<div class="cover-sub">
+دعوة حضور حفل الخطوبة
+</div>
+
+<h1>
+كريم <span>❤️</span> يارا
+</h1>
+
+<p>
+الحب يجمعنا والأقدار تكتب لنا أجمل البدايات
+</p>
+
+<button onclick="openInvitation()">
+✨ عرض الدعوة ✨
+</button>
+
+</div>
+
+</div>
+
+<div class="invitation-container" id="invitationPage">
+
+<section class="hero">
+
+<h2 style="font-size:14px;color:#f3e5ab">
+حفل خطوبة
+</h2>
+
+<h1>
+كريم ❤️ يارا
+</h1>
+
+<p style="font-family:'Amiri'">
+ونبدأ معاً رحلة جديدة
+</p>
+
+</section>
+
+<section class="message">
+
+<h2 class="section-title">
+بكل الحب
+</h2>
+
+<p>
+
+بكل السعادة والسرور،
+نتشرف بدعوتكم لحضور حفل خطوبتنا البهيج
+<br><br>
+
+وجودكم يكمل فرحتنا ❤️
+
+</p>
+
+</section>
+
+<section style="background:#fff8ef">
+
+<h2 class="section-title">
+
+حكايتنا من البداية
+
+</h2>
+
+<div class="photos-grid">
+
+<div class="photo-card">
+
+<img src="photo_2026-07-31_19-03-12.jpg">
+
+<h3>
+كريم
+</h3>
+
+</div>
+
+<div style="font-size:25px">
+❤️
+</div>
+
+<div class="photo-card">
+
+<img src="photo_2026-07-31_19-03-17.jpg">
+
+<h3>
+يارا
+</h3>
+
+</div>
+
+</div>
+
+</section>
+
+<section style="background:#fcf2e3">
+
+<h2 class="section-title">
+تفاصيل المناسبة
+</h2>
+
+<div class="details-card">
+
+<div class="details-item">
+📅 الأحد 9 / 8 / 2026
+</div>
+
+<div class="details-item">
+🕗 الساعة 8 مساءً
+</div>
+
+<div class="details-item">
+🏰 قاعة مون بلازا - دار الأشغال العسكرية
+</div>
+
+<div class="details-item">
+📍 كورنيش المعادي - القاهرة
+</div>
+<div class="location-box">
+
+    <div class="animated-pin">
+        📍
     </div>
 
-    <div class="invitation-container" id="invitationPage">
-        <section class="hero">
-            <h2 style="font-size: 14px; color: #f3e5ab; letter-spacing: 2px;">حفل خطوبة</h2>
-            <h1>كريم ❤️ يارا</h1>
-            <p style="font-size: 15px; font-family: 'Amiri', serif; margin-top: 6px;">ونبدأ معاً رحلة جديدة</p>
-        </section>
-
-        <section class="message">
-            <h2 class="section-title">بكل الحب</h2>
-            <p>
-                بكل السعادة والسرور، نتشرف بدعوتكم لحضور حفل خطوبتنا البهيج<br>
-                لنشارك معاً أجمل لحظات العمر ونبدأ صفحة جديدة من حياتنا.<br>
-                <strong>وجودكم يكمل فرحتنا</strong>
-            </p>
-        </section>
-
-        <section style="background: linear-gradient(135deg, #fff3e6, #fff9f1);">
-            <h2 class="section-title">حكايتنا من البداية</h2>
-            <div class="photos-grid">
-                <div class="photo-card">
-                    <img src="photo_2026-07-31_19-03-12.jpg" alt="العريس كريم">
-                    <h3>كريم</h3>
-                </div>
-                <div style="font-size: 20px; color: #ff4d7a; display: flex; align-items: center; justify-content: center;">❤️</div>
-                <div class="photo-card">
-                    <img src="photo_2026-07-31_19-03-17.jpg" alt="العروسة يارا">
-                    <h3>يارا</h3>
-                </div>
-            </div>
-        </section>
-
-        <section style="background: #fcf2e3;">
-            <h2 class="section-title">تفاصيل المناسبة</h2>
-            <div class="details-card">
-                <div class="details-item">📅 الأحد 9 / 8 / 2026</div>
-                <div class="details-item">🕗 الساعة 8 مساءً</div>
-                <div class="details-item">🏰 قاعة مون بلازا - دار الأشغال العسكرية</div>
-                <div class="details-item">📍 كورنيش المعادي، القاهرة</div>
-                
-                <div class="location-box">
-                    <div class="animated-pin">📍</div>
-                    <div class="location-msg">اضغط بالأسفل للذهاب لمكان القاعة مباشرة</div>
-                    
-                    <!-- الرابط السحري المضبوط بالاسم والإحداثيات عشان يفتح بالدبوس وبزرار الاتجاهات زي الصورة بالمللي -->
-                    <a href="https://www.google.com/maps/search/?api=1&query=قاعة+مون+بلازا+دار+الأشغال+العسكرية+29.948057682135286,31.265317411203814" target="_blank" class="location-btn">
-                        افتح الموقع على الخريطة
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            كريم <span style="color: #ff4d7a;">❤️</span> يارا
-            <br><br>
-            في انتظار تشريفكم لنحتفل معاً بفرحتنا
-        </footer>
+    <div class="location-msg" id="locationMsg">
+        جاري تحديد موقعك...
     </div>
 
-    <script>
-        function openInvitation() {
-            var music = document.getElementById('bgMusic');
-            
-            music.load();
-            var playPromise = music.play();
-            
-            if (playPromise !== undefined) {
-                playPromise.then(_ => {
-                }).catch(error => {
-                    console.log("Autoplay prevented or failed", error);
-                });
-            }
+    <a href="#" id="locationBtn" class="location-btn">
+        افتح الموقع على الخريطة
+    </a>
 
-            document.getElementById('cover').classList.add('hidden');
-            document.getElementById('invitationPage').classList.add('visible');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+كريم <span style="color:#ff4d7a;">❤️</span> يارا
+
+<br><br>
+
+في انتظار تشريفكم لنحتفل معاً بفرحتنا
+
+</footer>
+
+</div>
+
+<script>
+
+const DESTINATION = {
+
+lat:29.948278,
+
+lng:31.265361,
+
+name:"قاعة مون بلازا - دار الأشغال العسكرية"
+
+};
+
+function openInvitation(){
+
+var music=document.getElementById("bgMusic");
+
+music.load();
+
+music.play().catch(()=>{});
+
+document.getElementById("cover").classList.add("hidden");
+
+document.getElementById("invitationPage").classList.add("visible");
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+setTimeout(initLocation,500);
+
+}
+
+function initLocation(){
+
+const btn=document.getElementById("locationBtn");
+
+const msg=document.getElementById("locationMsg");
+
+if(!navigator.geolocation){
+
+msg.innerHTML="📍 "+DESTINATION.name;
+
+btn.href=`https://www.google.com/maps/search/?api=1&query=${DESTINATION.lat},${DESTINATION.lng}`;
+
+return;
+
+}
+
+msg.innerHTML="📍 جاري تحديد موقعك...";
+
+navigator.geolocation.getCurrentPosition(
+
+function(position){
+
+const userLat=position.coords.latitude;
+
+const userLng=position.coords.longitude;
+
+msg.innerHTML="✅ تم تحديد موقعك بنجاح";
+
+btn.onclick=function(e){
+
+e.preventDefault();
+
+const isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent);
+
+if(isIOS){
+
+window.location.href=
+`http://maps.apple.com/?saddr=${userLat},${userLng}&daddr=${DESTINATION.lat},${DESTINATION.lng}`;
+
+}else{
+
+window.location.href=
+`https://www.google.com/maps/dir/?api=1&origin=${userLat},${userLng}&destination=${DESTINATION.lat},${DESTINATION.lng}&travelmode=driving`;
+
+}
+
+};
+
+},
+
+function(){
+
+msg.innerHTML="📍 قاعة مون بلازا - دار الأشغال العسكرية";
+
+btn.href=
+`https://www.google.com/maps/search/?api=1&query=${DESTINATION.lat},${DESTINATION.lng}`;
+
+},
+
+{
+
+enableHighAccuracy:true,
+
+timeout:10000,
+
+maximumAge:0
+
+}
+
+);
+
+}
+        // فتح المكان مباشرة في حالة عدم السماح بالموقع
+    document.getElementById("locationBtn").addEventListener("click", function(e){
+
+        if(this.getAttribute("href")!="#")
+            return;
+
+    });
+
+}
+
+// الحصول على اسم المكان بالعربي تلقائياً
+async function getAddress(){
+
+    try{
+
+        const response=await fetch(
+
+        `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${DESTINATION.lat}&lon=${DESTINATION.lng}&accept-language=ar`
+
+        );
+
+        const data=await response.json();
+
+        if(data.display_name){
+
+            document.getElementById("locationMsg").innerHTML=
+            "📍 "+data.display_name;
+
         }
-    </script>
+
+    }catch(e){
+
+        document.getElementById("locationMsg").innerHTML=
+        "📍 قاعة مون بلازا - دار الأشغال العسكرية";
+
+    }
+
+}
+
+window.addEventListener("load",function(){
+
+    getAddress();
+
+});
+
+</script>
+
 </body>
+
 </html>
