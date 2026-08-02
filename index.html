@@ -225,7 +225,7 @@
                     <div class="animated-pin">📍</div>
                     <div class="location-msg">اضغط بالأسفل للذهاب لمكان القاعة مباشرة</div>
                     
-                    <!-- زر التشغيل الذكي للإحداثيات والدبوس المخصص -->
+                    <!-- الحل المضمون 100% للموبايل واللاب توب بالإحداثيات الجديدة -->
                     <button onclick="openGoogleMap()" class="location-btn">
                         افتح الموقع على الخريطة
                     </button>
@@ -259,22 +259,14 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // دالة ذكية لتوجيه الموبايل للإحداثيات والدبوس الخاص بك مباشرة
+        // دالة موحدة ومضمونة لفتح خرائط جوجل بالرابط الصريح على كل الأجهزة
         function openGoogleMap() {
-            const lat = "29.9484686";
-            const lng = "31.2661320";
-            const label = encodeURIComponent("قاعة مون بلازا - دار الأشغال العسكرية");
+            const lat = "29.94819892598518";
+            const lng = "31.265269915636207";
+            const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
             
-            if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                // للآيفون (يفتح خرائط أبل أو متصفح سفاري بسلاسة تامة)
-                window.location.href = `https://maps.apple.com/?q=${lat},${lng}`;
-            } else if (/Android/i.test(navigator.userAgent)) {
-                // للأندرويد (يفتح تطبيق خرائط جوجل مباشرة على الدبوس)
-                window.location.href = `geo:${lat},${lng}?q=${lat},${lng}(${label})`;
-            } else {
-                // لأي جهاز كمبيوتر أو متصفح آخر
-                window.open(`https://www.google.com/maps/search/?api=1&query=${lat},${lng}`, '_blank');
-            }
+            // فتح الرابط كأنه متصفح ويب عادي يضمن عدم التعليق على جاري التحميل في الموبايل
+            window.open(mapsUrl, '_blank');
         }
     </script>
 </body>
