@@ -599,6 +599,8 @@
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
         var player;
+        var apiReady = false;
+
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('youtube-player', {
                 height: '0',
@@ -607,7 +609,13 @@
                 playerVars: {
                     'autoplay': 0,
                     'loop': 1,
-                    'playlist': 'GMihmMfeazY'
+                    'playlist': 'GMihmMfeazY',
+                    'enablejsapi': 1
+                },
+                events: {
+                    'onReady': function(event) {
+                        apiReady = true;
+                    }
                 }
             });
         }
@@ -623,13 +631,15 @@
                 playMusicBtn.innerHTML = "🎵";
                 isPlaying = false;
             } else {
+                player.unMute();
+                player.setVolume(100);
                 player.playVideo();
                 playMusicBtn.innerHTML = "⏸️";
                 isPlaying = true;
             }
         }
 
-        // Open Invitation Function (Acts as Music Starter)
+        // Open Invitation Function (Acts as Music Starter for Mobile & PC)
         function openInvitation() {
             const cover = document.getElementById('cover');
             const page = document.getElementById('invitationPage');
@@ -637,10 +647,25 @@
             cover.classList.add('hidden');
             page.classList.add('visible');
             
+            // محاولة تشغيل الأغنية فوراً وبإجبار الصوت للموبايل
             if (player && typeof player.playVideo === 'function') {
+                player.unMute();
+                player.setVolume(100);
                 player.playVideo();
                 playMusicBtn.innerHTML = "⏸️";
                 isPlaying = true;
+            } else {
+                // لو الـ API لسه مجاش جاهز بنستناه جزء من الثانية ونشغلها
+                let checkInterval = setInterval(function() {
+                    if (player && typeof player.playVideo === 'function') {
+                        player.unMute();
+                        player.setVolume(100);
+                        player.playVideo();
+                        playMusicBtn.innerHTML = "⏸️";
+                        isPlaying = true;
+                        clearInterval(checkInterval);
+                    }
+                }, 200);
             }
 
             window.scrollTo({
